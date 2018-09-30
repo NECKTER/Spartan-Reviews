@@ -1,12 +1,18 @@
 .sidebar{
     float: left;
-    background-color: deepskyblue;
+    background-color: #4d90cd;
     width: 15%;
+    color: #ffd200;
+}
+.sidebar h2, .sidebar b{
+    color: #303030;
 }
 .map{
     float: right;
-    background-color: deepskyblue;
     width: 85%;
+}
+.map img{
+    width: 100%;
 }
 html{
     margin: auto;
@@ -16,16 +22,29 @@ body{
     margin: auto;
     width: 100%;
 }
-h1{
-    background-color: deepskyblue;
-    width: 80%;
+header{
+     background-color: #4d90cd;
+    width: 90%;
     margin: auto;
+}
+header div h1{
+    text-align: center;
+    padding-top: .4em;
+    color: #ffd200;
+}
+header div img{
+    height: 3.5em;
+    margin: auto;
+    margin-top: .5em;
+    margin-left: .5em;
+    float: left;
 }
 nav{
     background-color: #444;
-    width: 95%;
+    width: 100%;
     margin: auto;
     height: 1.5em;
+    clear: both;
 }
 nav a{
     text-decoration: none;
@@ -33,6 +52,8 @@ nav a{
     padding: 0 .5em;
     margin: 0.25em;
     float: right;
-    background-color: #777;
-    color: yellow
+    color: #ffd200;
+}
+nav a:hover{
+    background-color: #555;
 }
