@@ -1,10 +1,12 @@
 .sidebar{
     float: left;
     background-color: deepskyblue;
+    width: 15%;
 }
 .map{
     float: right;
     background-color: deepskyblue;
+    width: 85%;
 }
 html{
     margin: auto;
