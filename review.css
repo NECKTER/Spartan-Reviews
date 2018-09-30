@@ -1,0 +1,36 @@
+.sidebar{
+    float: left;
+    background-color: deepskyblue;
+}
+.map{
+    float: right;
+    background-color: deepskyblue;
+}
+html{
+    margin: auto;
+    width: 100%;
+}
+body{
+    margin: auto;
+    width: 100%;
+}
+h1{
+    background-color: deepskyblue;
+    width: 80%;
+    margin: auto;
+}
+nav{
+    background-color: #444;
+    width: 95%;
+    margin: auto;
+    height: 1.5em;
+}
+nav a{
+    text-decoration: none;
+    height: 1.25em;
+    padding: 0 .5em;
+    margin: 0.25em;
+    float: right;
+    background-color: #777;
+    color: yellow
+}
