@@ -1,53 +1,64 @@
-.sidebar{
+.sidebar {
     float: left;
     background-color: #4d90cd;
     width: 15%;
     color: #ffd200;
     text-align: center;
 }
-.sidebar h2, .sidebar b{
+
+.sidebar h2,
+.sidebar b {
     color: #303030;
 }
-.map{
+
+.map {
     float: right;
     width: 85%;
 }
-.map img{
+
+.map img {
     width: 100%;
 }
-html{
+
+html {
     margin: auto;
     width: 100%;
 }
-body{
+
+body {
     margin: auto;
     width: 100%;
 }
-header{
-     background-color: #4d90cd;
+
+header {
+    background-color: #4d90cd;
     width: 90%;
     margin: auto;
 }
-header div h1{
+
+header div h1 {
     text-align: center;
     padding-top: .4em;
     color: #ffd200;
 }
-header div img{
+
+header div img {
     height: 3.5em;
     margin: auto;
     margin-top: .5em;
     margin-left: .5em;
     float: left;
 }
-nav{
+
+nav {
     background-color: #444;
     width: 100%;
     margin: auto;
     height: 1.5em;
     clear: both;
 }
-nav a{
+
+nav a {
     text-decoration: none;
     height: 1.25em;
     padding: 0 .5em;
@@ -55,6 +66,14 @@ nav a{
     float: right;
     color: #ffd200;
 }
-nav a:hover{
+
+nav a:hover {
     background-color: #555;
+}
+
+#map {
+    height: 80%;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
 }
