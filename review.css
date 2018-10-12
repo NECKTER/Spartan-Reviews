@@ -58,7 +58,7 @@ nav {
     padding: .20em 0;
     height: 1.5em;
     clear: both;
-    position: fixed;
+    position: absolute;
     z-index: 1;
 }
 
