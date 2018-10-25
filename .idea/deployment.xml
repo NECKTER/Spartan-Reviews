@@ -5,7 +5,7 @@
       <paths name="xampp apache">
         <serverdata>
           <mappings>
-            <mapping deploy="\team4" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
