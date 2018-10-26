@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!HTMLDOC>
 
 <head lang="en">
@@ -13,9 +17,17 @@
         <h1>Spartan Reviews</h1>
     </div>
     <nav>
-        <a href="register.php" title="Account creation">Create Account</a>
-        <a href="login.php" title="login page">Login</a>
-        <a href="main.php" title="Home Page">Home</a>
+        <?php
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+            echo '<a href="logout.php" title="logout page">logout</a>';
+            echo '<a>Hello ',$_SESSION["username"], '</a>';
+        }
+        else {
+            echo '
+            <a href="register.php" title="Account creation">Create Account</a>
+            <a href="login.php" title="login page">Login</a>';
+        }
+        ?>
     </nav>
 </header>
 <main>
@@ -93,7 +105,7 @@
             // The map, centered at sjsu
             var map = new google.maps.Map(
                 document.getElementById('map'), {
-                    zoom: 14.5,
+                    zoom: 14,
                     center: sjsu
                 });
             // The marker, positioned at sjsu
