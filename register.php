@@ -100,11 +100,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
+        body{ font: 14px sans-serif;
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            }
         .wrapper{ width: 350px; padding: 20px; }
     </style>
 </head>
-<body>
+<body background = "create_account_background.jpg">
 <div class="wrapper">
     <h2>Sign Up</h2>
     <p>Please fill this form to create an account.</p>
