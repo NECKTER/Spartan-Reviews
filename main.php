@@ -7,7 +7,7 @@ session_start();
 <head lang="en">
     <meta charset="utf-8">
     <title>Spartan Reviews</title>
-    <link href="review.css" rel="stylesheet" type="text/css">
+    <link href="login.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

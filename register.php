@@ -97,18 +97,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif;
-            background-position: top;
-            background-size: cover;
-            background-repeat: no-repeat;
-            }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <title>Spartan Review Sign Up</title>
+    <link href="login.css" rel="stylesheet" type="text/css">
 </head>
 <body background = "create_account_background.jpg">
+    <header>
+    <div>
+        <a href="main.php"><img src="spartanLogo.png" alt="Logo" title="Logo"></a>
+        <h1>Spartan Reviews</h1>
+    </div>
+    <nav>
+        <a href="register.php" title="Account creation">Create Account</a>
+        <a href="login.php" title="login page">Login</a>
+        <a href="main.php" title="Home Page">Home</a>
+    </nav>
+</header>
 <div class="wrapper">
     <h2>Sign Up</h2>
     <p>Please fill this form to create an account.</p>

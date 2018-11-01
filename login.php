@@ -90,40 +90,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{
-            font: 14px sans-serif;
-            background-position: top;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <title>Spartan Review Login</title>
+    <link href="login.css" rel="stylesheet" type="text/css">
 </head>
-<body background = "create_account_background.jpg">
-<div class="wrapper">
-    <h2>Login</h2>
-    <p>Please fill in your credentials to login.</p>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-            <span class="help-block"><?php echo $username_err; ?></span>
+
+<body background="create_account_background.jpg">
+    <header>
+        <div>
+            <a href="main.php"><img src="spartanLogo.png" alt="Logo" title="Logo"></a>
+            <h1>Spartan Reviews</h1>
         </div>
-        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control">
-            <span class="help-block"><?php echo $password_err; ?></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Login">
-        </div>
-        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-    </form>
-</div>
+        <nav>
+            <a href="register.php" title="Account creation">Create Account</a>
+            <a href="login.php" title="login page">Login</a>
+            <a href="main.php" title="Home Page">Home</a>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <h2>Login</h2>
+        <p>Please fill in your credentials to login.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block">
+                    <?php echo $username_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block">
+                    <?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+        </form>
+    </div>
 </body>
+
 </html>
