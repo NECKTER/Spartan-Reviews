@@ -52,7 +52,7 @@
         });
         var infoWindow = new google.maps.InfoWindow;
 
-          downloadUrl('https://00e9e64baca141f1b53b5ad9b14bffca28db7aa26f3af7a4e4-apidata.googleusercontent.com/download/storage/v1/b/markerx/o/marker.xml?qk=AD5uMEtKM_s0WttgyBEwHXKDv2Yz48WGuaQGIEtfY-kK3KztDnljdgJh7hcyerhK0BeAlJy3IkzmqZgeXWN8CkXd7JFt7CIGaAsUFXP1XvuFzRBx49S7B6okowX8lXj0HFCcR7P5sKUxeJFBsAG1QDns4DrGwVl62fHP368_NVy2kz4qlBdkuP5NE7mjDmhRz-IYN3vI_pnsUGbY-WquNdXwfV5WM-ddIYd9nBsULc4JaLavKwwT5zOzKxqOjGWGnww1nSQM3r6tV8Px_Sh09CRTj2nPBFuYgvtZ56cEvIkMDZRyMU9aHif8WZeMHLFNryNKoVfQC9pa0qckSC6WjSQTh1ARTLlOjR9uPNkE9EXFpExJ2o2B7DUywNZrTECQ3Cx3SQVszQTqM727HuMPjWzV-08R6_FRLk2uwPiNhCW-Tg6AtvX5RDbbHrk3PhR6Y1M1xITyI8ASQutlH-teJXiJeHTdxXcJn39cu4nRgNhCg-YCcE4Ur2CKU9jQCWdqeqdhRdRjN2qHleBeFnHlM71Umdx5qhk25FM4Y2rsRgMC6PEgmN7ay8enrjG8cmvU1sQSfJ5Z8P9IPW828wtIrAAIyvztPAVForlBZUEmlPEc31lrQYd19fhryvjFP4ZjAIJqaOMlOAVvgPvyRq9DrbVi4BI031RTCH_C-nBCiPfMPQITrdeSinQXqpuiJXRG4_9gmSeo76tY8S3ZutLlz8IpbRBzfhrWSvcS0raB3Pd_7GIPHCXiwxC0iJkWTuZ2ZPpQBmPlyuSg',
+          downloadUrl('https://storage.googleapis.com/markerx/marker.xml',
             function(data) {
               var xml = data.responseXML;
               var markers = xml.documentElement.getElementsByTagName('marker');
