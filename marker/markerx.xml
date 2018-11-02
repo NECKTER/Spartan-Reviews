@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<markers>
+  <marker id="1" name="McDonald's 1" address="777 Story Rd, San Jose, CA 95122" lat="37.331024" lng="-121.860687" type="Macdonalds"/>
+  <marker id="2" name="McDonald's 2" address="1299 E Santa Clara St, San Jose, CA 95116" lat="37.348751" lng="-121.865074" type="Macdonalds"/>
+  <marker id="3" name="Taco Bell" address="720 Story Rd, San Jose, CA 95122" lat="37.328781" lng="-121.858910" type="Tacobell"/>
+  <marker id="4" name="Burger King" address="1030 McLaughlin Ave, San Jose, CA 95122" lat="37.333782" lng="-121.854263" type="Burgerking"/>
+  <marker id="5" name="Jack In The Box 1" address="148 E San Carlos St, San Jose, CA 95112" lat="37.332649" lng="-121.884117" type="Jackinthebox"/>
+  <marker id="6" name="Jack In The Box 2" address="1490 Monterey St, San Jose, CA 95110" lat="37.314987" lng="-121.872032" type="Jackinthebox"/>
+  <marker id="7" name="Wendy's" address="1405 Monterey St, San Jose, CA 95110" lat="37.315918" lng="-121.874001" type="Wendys"/>
+  <marker id="8" name="Carl's Jr" address="655 Coleman Ave, San Jose, CA 95110" lat="37.341263" lng="-121.910004" type="Carljr"/>
+  <marker id="9" name="Subway 1" address="475 E San Carlos St, San Jose, CA 95112" lat="37.336403" lng="-121.877098" type="Subway"/>
+  <marker id="10" name="Subway 2" address="350 S Market St, San Jose, CA 95113" lat="37.330147" lng="-121.887260" type="Subway"/>
+  <marker id="11" name="Subway 3" address="165 W San Fernando St, San Jose, CA 95113" lat="37.333214" lng="-121.892105" type="Subway"/>
+  <marker id="12" name="Subway 4" address="350 Bird Ave #50, San Jose, CA 95126" lat="37.324497" lng="-121.900017" type="Subway"/>
+  <marker id="13" name="Subway 5" address="695 Coleman Ave, San Jose, CA 95110" lat="37.341480" lng="-121.911552" type="Subway"/>
+</markers>

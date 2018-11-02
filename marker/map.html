@@ -1,0 +1,155 @@
+<!DOCTYPE html >
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>SJSU Fast Food Restaurants</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+        var customLabel = {
+        Macdonalds: {
+          label: 'M'
+          },
+        Tacobell: {
+          label: 'T'
+          },
+        Burgerking: {
+          label: 'B'
+          },
+        Jackinthebox: {
+          label: 'J'
+          },
+        Wendys: {
+          label: 'W'
+          },
+        Carljr: {
+          label: 'C'
+          },
+        Subway: {
+          label: 'S'
+          },
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(37.335240, -121.881112),
+          zoom: 14
+        });
+        var infoWindow = new google.maps.InfoWindow;
+
+          downloadUrl('https://00e9e64bacbf6795da38e4e9b7b1ada2eb148fd63d4eedcd3f-apidata.googleusercontent.com/download/storage/v1/b/markerx/o/marker.xml?qk=AD5uMEs2rpgBoCo8wgw2UYF1m6fZoUACbDn008ooKxhoIx05FGT-J1eC2P9ZygTO_QBjv38DStBkFysvBjSZHdHR9oZQJYEjJcWrFFzjdDYpqOkkC7tGMwsJSpN3ditV4WDRDc-Nhk4OCMGkEoPXkXc4SQJ8hn15oxTiCMu4suoZIUn8Np3OVzwaemMQ7cdMVWcf0fu8kGIiIo5fqlXNKZisSDv155rsY_X1GwVGS1hjvhB9uZAXbKn_dsLIUeVB0B6b5tw_9SSFXJCNxuM_Xe-WoAeHYlds1IOkR4wX8SdaXc0zfVyOWZ4Wl1uguF3GE3OZQcnQzadJMKYp7DZEe_7_SyIXkwV2V9qO9pM5KwRs5_P-4NMbqP2IvWOo-CfW2PUFpSfhANiU0bH21WIfOzUpDOsjQtPzfkgq1FyUnvpBoMUQj9TVtRHyt7_UR9pSKNM6Qu8_yYQ4KHogAQF3_gl9TIXVd1iqupzaraZfmg6ilpV7dNprD8rwB00q4h1ABblx6mlmRfoiXwq8ud3WibJcHSxCoutxjomFLr0lFmKeTVTuI6geeG3AAez_p_XnP4z5TtJyamH2JCURe6hu9TKyuo_MLjeD3tBX6N1nvs1rou3MXj7qv7z-Rx01jl4pSospsbMG-LHtJo8aMS3KL1XEdiHBKZf6J7yJ9M_k433benSi04OHvYp8wb-L5-1KOkuD1BIuwUrmTU4wY15b1-o3Vy40HSEiTfcVh2RB75XzD-X4Nr0DcBaxuoLorzoCTVQlBifOnsOk',
+            function(data) {
+              var xml = data.responseXML;
+              var markers = xml.documentElement.getElementsByTagName('marker');
+              Array.prototype.forEach.call(markers, function(markerElem) {
+                var id = markerElem.getAttribute('id');
+                var name = markerElem.getAttribute('name');
+                var address = markerElem.getAttribute('address');
+                var type = markerElem.getAttribute('type');
+                var point = new google.maps.LatLng(
+                    parseFloat(markerElem.getAttribute('lat')),
+                    parseFloat(markerElem.getAttribute('lng')));
+
+                var infowincontent = document.createElement('div');
+                var restaurant = document.createElement('strong');
+                restaurant.textContent = name
+                infowincontent.appendChild(restaurant);
+                infowincontent.appendChild(document.createElement('br'));
+                var text = document.createElement('text');
+                text.textContent = address
+                infowincontent.appendChild(text);
+                var icon = customLabel[type] || {};
+                var marker = new google.maps.Marker({
+                  map: map,
+                  position: point,
+                  label: icon.label
+                });
+                marker.addListener('click', function() {
+                  infoWindow.setContent(infowincontent);
+                  infoWindow.open(map, marker);
+               });
+               marker.addListener('dblclick', function() {
+                 if (id == '1') {
+                 window.location.href = 'Restaurants/Mcdonald.html';
+                 }
+                 else if(id == '2')
+                 {window.location.href = 'Restaurants/Mcdonald 2.html';
+                 }
+                 else if(id == '3')
+                 {window.location.href = 'Restaurants/Tacobell.html';
+                 }
+                 else if(id == '4')
+                 {window.location.href = 'Restaurants/Burger King.html';
+                 }
+                 else if(id == '5')
+                 {window.location.href = 'Restaurants/Jack In The Box.html';
+                 }
+                 else if(id == '6')
+                 {window.location.href = 'Restaurants/Jack In The Box 2.html';
+                 }
+                 else if(id == '7')
+                 {window.location.href = 'Restaurants/Wendys.html';
+                 }
+                 else if(id == '8')
+                 {window.location.href = 'Restaurants/Carl Jr.html';
+                 }
+                 else if(id == '9')
+                 {window.location.href = 'Restaurants/Subway 1.html';
+                 }
+                 else if(id == '10')
+                 {window.location.href = 'Restaurants/Subway 2.html';
+                 }
+                 else if(id == '11')
+                 {window.location.href = 'Restaurants/Subway 3.html';
+                 }
+                 else if(id == '12')
+                 {window.location.href = 'Restaurants/Subway 4.html';
+                 }
+                 else {
+                 window.location.href = 'Restaurants/Subway 5.html';
+                 }
+               });
+            });
+          });
+        }
+
+
+
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+      }
+
+      function doNothing() {}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIAxFPsEfdSXps9ruhEWcNcFIygGG0qnY&callback=initMap">
+    </script>
+  </body>
+</html>
