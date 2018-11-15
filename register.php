@@ -47,6 +47,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Please enter a password.";
     } elseif(strlen(trim($_POST["password"])) < 6){
         $password_err = "Password must have atleast 6 characters.";
+    } elseif(strcmp(trim($_POST["password"]), $username) == 0){
+        $password_err = "Password must not match username";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -54,11 +56,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = "Please confirm password.";
-    } else{
+    } else if(strcmp(trim($_POST["confirm_password"]), $username) == 0){
+			$confirm_password_err = "Confirm password must not match username";
+	} else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
-        }
+        } 
     }
 
     // Check input errors before inserting in database
