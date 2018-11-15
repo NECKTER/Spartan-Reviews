@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "config.php";
 ?>
 
 <!HTMLDOC>
@@ -33,13 +34,18 @@ session_start();
 <main>
     <div class="sidebar">
         <h2>Restaurants</h2>
-        <p><b>McDonald</b> &#9733&#9733&#9733</p>
-        <p><b>Taco Bell</b> &#9733&#9733&#9733</p>
-        <p><b>Burger King</b> &#9733&#9733&#9733</p>
-        <p><b>Jack in the box</b> &#9733&#9733&#9733</p>
-        <p><b>Wendy's</b> &#9733&#9733&#9733</p>
-        <p><b>Carl's Jr.</b> &#9733&#9733&#9733</p>
-        <p><b>Subway</b> &#9733&#9733&#9733</p>
+        <?php
+        $restaurants = "SELECT name, score, reviews, id FROM markers";
+        $restaurantList = mysqli_query($link, $restaurants) or die("database error:". mysqli_error($link));
+        while($list = mysqli_fetch_assoc($restaurantList)){
+            $rid = $list['id'];
+            if ($list['reviews'] == 0)
+                $avg = 0;
+            else
+                $avg = round($list['score'] / $list['reviews'], 1);
+            echo '<p><b><a href=reviews.php?restid='.$rid.'>'.$list['name'].'</a></b> &nbsp;&nbsp;'.$avg.'&#9733</p>';
+        }
+        ?>
     </div>
     <div id="map" class="map"></div>
     <script>
