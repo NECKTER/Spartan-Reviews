@@ -107,7 +107,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h1>Spartan Reviews</h1>
     </div>
     <nav>
-        <a href="register.php" title="Account creation">Create Account</a>
         <a href="login.php" title="login page">Login</a>
         <a href="main.php" title="Home Page">Home</a>
     </nav>
