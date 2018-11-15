@@ -80,10 +80,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Spartan Review Login</title>
     <link href="login.css" rel="stylesheet" type="text/css">
 </head>
-<body background = "create_account_background.jpg">
+<body background = "image/create_account_background.jpg">
     <header>
     <div>
-        <a href="main.php"><img src="spartanLogo.png" alt="Logo" title="Logo"></a>
+        <a href="main.php"><img src="image/spartanLogo.png" alt="Logo" title="Logo"></a>
         <h1>Spartan Reviews</h1>
     </div>
     <nav>
