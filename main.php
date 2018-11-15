@@ -49,142 +49,78 @@ require_once "config.php";
     </div>
     <div id="map" class="map"></div>
     <script>
-        // Initialize and add the map
+        var customLabel = {
+            restaurant: {
+                label: 'R'
+            },
+            bar: {
+                label: 'B'
+            }
+        };
+
         function initMap() {
-            // The location of sjsu
-            var sjsu = {
-                lat: 37.3351874,
-                lng: -121.8832602
-            };
-            var mcdonald1 = {
-                lat: 37.331129,
-                lng: -121.860721
-            };
-            var mcdonald2 = {
-                lat: 37.348768,
-                lng: -121.865085
-            };
-            var tacobell = {
-                lat: 37.328762,
-                lng: -121.858909
-            };
-            var burgerking = {
-                lat: 37.333749,
-                lng: -121.854261
-            };
-            var jackinthebox1 = {
-                lat: 37.332663,
-                lng: -121.884107
-            };
-            var jackinthebox2 = {
-                lat: 37.314984,
-                lng: -121.872029
-            };
-            var wendys = {
-                lat: 37.315924,
-                lng: -121.874005
-            };
-            var carlsjr = {
-                lat: 37.341255,
-                lng: -121.909998
-            };
-            var subway1 = {
-                lat: 37.336406,
-                lng: -121.877097
-            };
-            var subway2 = {
-                lat: 37.330148,
-                lng: -121.887260
-            };
-            var subway3 = {
-                lat: 37.333216,
-                lng: -121.892105
-            };
-            var subway4 = {
-                lat: 37.324497,
-                lng: -121.900020
-            };
-            var subway5 = {
-                lat: 37.341479,
-                lng: -121.911553
-            };
-            // The map, centered at sjsu
-            var map = new google.maps.Map(
-                document.getElementById('map'), {
-                    zoom: 14,
-                    center: sjsu
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: new google.maps.LatLng(37.3351874, -121.8832602),
+                zoom: 14
+            });
+            var infoWindow = new google.maps.InfoWindow;
+
+            downloadUrl('domxml.php', function (data) {
+                var xml = data.responseXML;
+                var markers = xml.documentElement.getElementsByTagName('marker');
+                Array.prototype.forEach.call(markers, function (markerElem) {
+                    var id = markerElem.getAttribute('id');
+                    var name = markerElem.getAttribute('name');
+                    var address = markerElem.getAttribute('address');
+                    var type = markerElem.getAttribute('type');
+                    var point = new google.maps.LatLng(
+                        parseFloat(markerElem.getAttribute('lat')),
+                        parseFloat(markerElem.getAttribute('lng')));
+
+                    var infowincontent = document.createElement('div');
+                    var strong = document.createElement('strong');
+                    strong.textContent = name
+                    infowincontent.appendChild(strong);
+                    infowincontent.appendChild(document.createElement('br'));
+
+                    var text = document.createElement('text');
+                    text.textContent = address
+                    infowincontent.appendChild(text);
+                    var icon = customLabel[type] || {};
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: point,
+                        label: icon.label
+                    });
+                    marker.addListener('click', function () {
+                        infoWindow.setContent(infowincontent);
+                        infoWindow.open(map, marker);
+                    });
+                    marker.addListener('dblclick', function () {
+                        window.location.href = 'reviews.php?restid=' + id;
+                    });
+
                 });
-            // The marker, positioned at sjsu
-            var sjsuMarker = new google.maps.Marker({
-                position: sjsu,
-                map: map
-            });
-
-            var mcdonald1Marker = new google.maps.Marker({
-                position: mcdonald1,
-                map: map
-            });
-
-            var mcdonald2Marker = new google.maps.Marker({
-                position: mcdonald2,
-                map: map
-            });
-
-            var tacobellMarker = new google.maps.Marker({
-                position: tacobell,
-                map: map
-            });
-
-            var burgerkingMarker = new google.maps.Marker({
-                position: burgerking,
-                map: map
-            });
-
-            var jackinthebox1Marker = new google.maps.Marker({
-                position: jackinthebox1,
-                map: map
-            });
-
-            var jackinthebox2Marker = new google.maps.Marker({
-                position: jackinthebox2,
-                map: map
-            });
-
-            var wendysMarker = new google.maps.Marker({
-                position: wendys,
-                map: map
-            });
-
-            var carlsjrMarker = new google.maps.Marker({
-                position: carlsjr,
-                map: map
-            });
-
-            var subway1Marker = new google.maps.Marker({
-                position: subway1,
-                map: map
-            });
-
-            var subway2Marker = new google.maps.Marker({
-                position: subway2,
-                map: map
-            });
-
-            var subway3Marker = new google.maps.Marker({
-                position: subway3,
-                map: map
-            });
-
-            var subway4Marker = new google.maps.Marker({
-                position: subway4,
-                map: map
-            });
-
-            var subway5Marker = new google.maps.Marker({
-                position: subway5,
-                map: map
             });
         }
+
+        function downloadUrl(url, callback) {
+            var request = window.ActiveXObject ?
+                new ActiveXObject('Microsoft.XMLHTTP') :
+                new XMLHttpRequest;
+
+            request.onreadystatechange = function() {
+                if (request.readyState == 4) {
+                    request.onreadystatechange = doNothing;
+                    callback(request, request.status);
+                }
+            };
+
+            request.open('GET', url, true);
+            request.send(null);
+        }
+
+        function doNothing() {}
 
     </script>
     <!--Load the API from the specified URL

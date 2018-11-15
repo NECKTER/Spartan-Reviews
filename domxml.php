@@ -1,32 +1,18 @@
 <?php
 
-require("info/phpsql_dbinfo.php");
-
+require_once "config.php";
 // Start XML file, create parent node
 
 $dom = new DOMDocument("1.0");
 $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
-// Opens a connection to a MySQL server
 
-$connection=mysqli_connect ('localhost', $username, $password);
-if (!$connection) {  die('Not connected : ' . mysql_error());}
-
-// Set the active MySQL database
-
-$db_selected = mysqli_select_db($connection,$database);
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysql_error());
-}
 
 // Select all the rows in the markers table
 
 $query = "SELECT * FROM markers WHERE 1";
-$result = mysqli_query($connection,$query);
-if (!$result) {
-  die('Invalid query: ' . mysql_error());
-}
+$result = mysqli_query($link,$query)  or die("database error:". mysqli_error($link));
 
 header("Content-type: text/xml");
 
@@ -45,9 +31,5 @@ while ($row = @mysqli_fetch_assoc($result)){
 }
 
 echo $dom->saveXML();
-
-$dom->formatOutput = true;
-$test1 =  $dom->saveXML();
-$dom->save('xml/markerx.xml');
 
 ?>
