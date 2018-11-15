@@ -13,7 +13,7 @@ session_start();
 <body>
 <header>
     <div>
-        <a href="main.php"><img src="/spartanLogo.png" alt="Logo" title="Logo"></a>
+        <a href="main.php"><img src="image/spartanLogo.png" alt="Logo" title="Logo"></a>
         <h1>Spartan Reviews</h1>
     </div>
     <nav>
