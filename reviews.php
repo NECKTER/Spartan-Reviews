@@ -7,9 +7,14 @@ session_start();
 <?php include('container.php');?>
 <div class="container">	
 	<?php
-	include_once("../config.php");
+    require_once "config.php";
+    if (!isset($_GET['restid']))
+        header("location: main.php");
 	$restaurantDetails = "SELECT * FROM markers WHERE ID = '$_GET[restid]'";
-	$detailResult = mysqli_query($link, $restaurantDetails) or die("database error:". mysqli_error($link));
+	$detailResult = mysqli_query($link, $restaurantDetails); // or die("database error:". mysqli_error($link));
+	if (mysqli_num_rows($detailResult) == 0) {
+        header("location: main.php");
+    }
 	$details = mysqli_fetch_assoc($detailResult);
 	echo '<h2>'.$details['name'].'</h2>';
 	echo '<p><b>Address</b><br>'.$details['address1'].'<br>'.$details['address2'].'<br><b>Phone: </b>'.$details['phone'].'</p>';
