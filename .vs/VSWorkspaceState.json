@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.idea\\dataSources",
+    "\\image",
+    "\\marker"
   ],
-  "SelectedNode": "\\login.php",
+  "SelectedNode": "\\main.php",
   "PreviewInSolutionExplorer": false
 }

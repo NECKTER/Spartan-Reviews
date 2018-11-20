@@ -156,7 +156,11 @@ session_start();
             echo '<div class="col-sm-3">
 				 <button type="button" id="rateProduct" class="btn btn-default">Rate this restaurant</button>
 				</div>';
-        }
+			}
+			else{
+			echo '<div class="col-sm-3">
+				  <p>Want to write a review?<a href="register.php"> Create a new account</a> or<a href="login.php"> Login here</a></p>';
+			}
 			?>			
 		</div>
 		<div class="row">
