@@ -5,6 +5,18 @@ session_start();
 <title>ratings</title>
 <script src="rating.js"></script>
 <?php include('container.php');?>
+</head>
+<body>
+<header>
+    <div>
+        <a href="main.php"><img src="image/spartanLogo.png" alt="Logo" title="Logo"></a>
+        <h1>Spartan Reviews</h1>
+    </div>
+    <nav>
+        <a href="register.php" title="Account creation">Create Account</a>
+        <a href="main.php" title="Home Page">Home</a>
+    </nav>
+</header>
 <div class="container">	
 	<?php
     require_once "config.php";
