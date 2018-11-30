@@ -29,7 +29,7 @@ $(function() {
 			data : formData,
 			success:function(response){
 				 $("#ratingForm")[0].reset();
-				 window.setTimeout(function(){window.location.reload()},3000)
+				 window.setTimeout(function(){window.location.reload()},300)
 			}
 		});		
 	});
