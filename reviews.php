@@ -13,7 +13,17 @@ session_start();
         <h1>Spartan Reviews</h1>
     </div>
     <nav>
-        <a href="register.php" title="Account creation">Create Account</a>
+        <?php
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+            echo '<a href="logout.php" title="logout page">Logout</a>';
+            echo '<a>Hello ',$_SESSION["username"], '</a>';
+        }
+        else {
+            echo '
+            <a href="register.php" title="Account creation">Create Account</a>
+            <a href="login.php" title="login page">Login</a>';
+        }
+        ?>
         <a href="main.php" title="Home Page">Home</a>
     </nav>
 </header>
@@ -23,6 +33,7 @@ session_start();
     if (!isset($_GET['restid']))
         header("location: main.php");
 	$restaurantDetails = "SELECT * FROM markers WHERE ID = '$_GET[restid]'";
+	$_SESSION["prev-page"] = "reviews.php?restid=$_GET[restid]";
 	$detailResult = mysqli_query($link, $restaurantDetails); // or die("database error:". mysqli_error($link));
 	if (mysqli_num_rows($detailResult) == 0) {
         header("location: main.php");
@@ -166,12 +177,13 @@ session_start();
 			<?php 
 			if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             echo '<div class="col-sm-3">
+				<p>Click the button below to start rating this restaurant now!</p>
 				 <button type="button" id="rateProduct" class="btn btn-default">Rate this restaurant</button>
 				</div>';
 			}
 			else{
 			echo '<div class="col-sm-3">
-				  <p>Want to write a review?<a href="register.php"> Create a new account</a> or<a href="login.php"> Login here</a></p>';
+				  <p>Want to write a review? <a href="register.php">Create a new account</a> or <a href="login.php">Login here</a></p>';
 			}
 			?>			
 		</div>

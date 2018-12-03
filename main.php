@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "config.php";
+$_SESSION["prev-page"] = "main.php";
 ?>
 
 <!HTMLDOC>

@@ -1,9 +1,9 @@
 <?php
 // Initialize the session
 session_start();
-// Check if the user is already logged in, if yes then redirect him to welcome page
+// Check if the user is already logged in, if yes then redirect him to previous page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: main.php");
+	header("location: " .$_SESSION["prev-page"]);
     exit;
 }
 // Include config file
@@ -50,8 +50,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-                            // Redirect user to welcome page
-                            header("location: main.php");
+                            //Redirect user to previous page
+							header("location: " .$_SESSION["prev-page"]);
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -67,9 +67,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         // Close statement
         mysqli_stmt_close($stmt);
+
     }
     // Close connection
     mysqli_close($link);
+
 }
 ?>
 
