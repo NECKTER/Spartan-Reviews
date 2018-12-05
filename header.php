@@ -136,7 +136,7 @@ a {
 
 .glyphicon{position:relative;top:1px;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
-.glyphicon-star:before{content:"\e006"}
+.glyphicon-star:before{content:"\2605"}
 
 .glyphicon-star-empty:before{content:"\e007"}
 
