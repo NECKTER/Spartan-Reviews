@@ -1,6 +1,6 @@
-<?php 
-include('header.php');
+<?php
 session_start();
+include('header.php');
 ?>
 <title>ratings</title>
 <script src="rating.js"></script>
