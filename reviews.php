@@ -195,7 +195,7 @@ session_start();
 				$ratinguery = "SELECT ratingId, itemId, userId, ratingNumber, username, comments, created, modified FROM restaurant_rating WHERE itemID ='$_GET[restid]'";
 				$ratingResult = mysqli_query($link, $ratinguery) or die("database error:". mysqli_error($link));
 				while($rating = mysqli_fetch_assoc($ratingResult)){
-					$date=date_create($rating['created']);
+					$date = date_create($rating['created']);
 					$reviewDate = date_format($date,"M d, Y");			
 				?>				
 					<div class="row">
